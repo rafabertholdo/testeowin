@@ -20,17 +20,17 @@ namespace Util
                 new Dictionary<string, string>
                 {
                   { OAuth2Constants.GrantType, OAuth2Constants.Password },
-                  { OAuth2Constants.UserName, "dominick" },
-                  { OAuth2Constants.Password, "123456" },
-                  { OAuth2Constants.Scope, "https://localhost:44301/" }                  
+                  { OAuth2Constants.UserName, "rafael.bertholdo@grupoaec.com.br" },
+                  { OAuth2Constants.Password, "P@ss0wrd38*" },
+                  { OAuth2Constants.Scope, "urn:aec:hospitale" }                  
               });
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization =
               new BasicAuthenticationHeaderValue(
-                "testewebapi",
-                "7/Cp5O/kqBfTQT5aW0kMWomlfDm6rXOViH7lI5tYehU=");
-            var result = client.PostAsync(new Uri("https://pasteur/issue/oauth2/token"), form).Result;
+                "codeflowclient",
+                "jksrz9pKTZDE5wWhgwNGIo34o8hfOAkJaC4jTnlUyho=");
+            var result = client.PostAsync(new Uri("https://localhost:44305/issue/oauth2/token"), form).Result;
             string response = result.Content.ReadAsStringAsync().Result;
             dynamic dResponse = Newtonsoft.Json.Linq.JObject.Parse(response);
             return dResponse.access_token.Value.ToString();

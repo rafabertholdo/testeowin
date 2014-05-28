@@ -22,8 +22,14 @@ namespace ClientOwin
 
             using (var owinClient = new HttpClient())
             {
-                owinClient.BaseAddress = new Uri("https://localhost:44301/");
+                owinClient.BaseAddress = new Uri("http://localhost:3209/");
                 owinClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                var content = new StringContent("UserName=ze@grupoaec.com.br");
+                using (var response = owinClient.PostAsync("/api/UsuarioCentralAdmin",content).Result)
+                {
+                    response.EnsureSuccessStatusCode();
+                }                    
+                
                 using (var owinResponse = owinClient.GetAsync("/api/testes").Result)
                 {
                     owinResponse.EnsureSuccessStatusCode();
