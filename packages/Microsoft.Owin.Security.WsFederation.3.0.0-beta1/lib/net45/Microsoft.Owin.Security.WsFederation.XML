@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Owin.Security.WsFederation</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Owin.Security.WsFederation.IssuerFederationData">
+            <summary>
+            Signing metadata parsed from a WSFed endpoint.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.IssuerFederationData.IssuerSigningTokens">
+            <summary>
+            Gets or sets the Signing tokens.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.IssuerFederationData.PassiveTokenEndpoint">
+            <summary>
+            Gets or sets the passive token endpoint.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.IssuerFederationData.TokenIssuerName">
+            <summary>
+            Gets or sets the token issuer name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Owin.Security.WsFederation.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.Resources.Exception_MissingDescriptor">
+            <summary>
+              Looks up a localized string similar to The service descriptor is missing..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.Resources.Exception_OptionMustBeProvided">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; option must be provided..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.Resources.Exception_ValidatorHandlerMismatch">
+            <summary>
+              Looks up a localized string similar to An ICertificateValidator cannot be specified at the same time as an HttpMessageHandler unless it is a WebRequestHandler..
+            </summary>
+        </member>
+        <member name="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationDefaults">
+            <summary>
+            Default values related to WsFederation authentication middleware
+            </summary>
+        </member>
+        <member name="F:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationDefaults.AuthenticationType">
+            <summary>
+            The default value used for WsFederationAuthenticationOptions.AuthenticationType
+            </summary>
+        </member>
+        <member name="F:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationDefaults.CookiePrefix">
+            <summary>
+            The prefix used to provide a default WsFederationAuthenticationOptions.CookieName
+            </summary>
+        </member>
+        <member name="F:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationDefaults.CookieName">
+            <summary>
+            The prefix used to provide a default WsFederationAuthenticationOptions.CookieName
+            </summary>
+        </member>
+        <member name="T:Owin.WsFederationAuthenticationExtensions">
+            <summary>
+            Extension methods for using <see cref="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationMiddleware"/>
+            </summary>
+        </member>
+        <member name="M:Owin.WsFederationAuthenticationExtensions.UseWsFederationAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions)">
+            <summary>
+            Adds the <see cref="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationMiddleware"/> into the OWIN runtime.
+            </summary>
+            <param name="app">The <see cref="T:Owin.IAppBuilder"/> passed to the configuration method</param>
+            <param name="wsFederationOptions">WsFederationAuthenticationOptions configuration options</param>
+            <returns>The updated <see cref="T:Owin.IAppBuilder"/></returns>
+        </member>
+        <member name="M:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationHandler.ApplyResponseGrantAsync">
+            <summary>
+            Handles Signout
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationHandler.ApplyResponseChallengeAsync">
+            <summary>
+            Handles Challenge
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationMiddleware">
+            <summary>
+            OWIN middleware for obtaining identities using WsFederation protocol.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Owin.IAppBuilder,Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions)">
+            <summary>
+            Initializes a <see cref="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationMiddleware"/>
+            </summary>
+            <param name="next">The next middleware in the OWIN pipeline to invoke</param>
+            <param name="app">The OWIN application</param>
+            <param name="options">Configuration options for the middleware</param>
+        </member>
+        <member name="M:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationMiddleware.CreateHandler">
+            <summary>
+            Provides the <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler"/> object for processing authentication-related requests.
+            </summary>
+            <returns>An <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler"/> configured with the <see cref="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions"/> supplied to the constructor.</returns>
+        </member>
+        <member name="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions">
+            <summary>
+            Configuration options for <see cref="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationMiddleware"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.#ctor(System.String)">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions"/>
+            </summary>
+            <param name="authenticationType"> corresponds to the IIdentity AuthenticationType property. <see cref="P:Microsoft.Owin.Security.AuthenticationOptions.AuthenticationType"/>.</param>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.Caption">
+            <summary>
+            Get or sets the text that the user can display on a sign in user interface.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.IssuerAddress">
+            <summary>
+            Gets or sets the address of the issuer.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.MetadataAddress">
+            <summary>
+            Gets or sets the address to retrieve the wsFederation metadata
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.Notifications">
+            <summary>
+            Gets or sets the <see cref="T:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationNotifications"/> to call when processing WsFederation messages.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.SecurityTokenHandlers">
+            <summary>
+            Gets or sets the <see cref="T:System.IdentityModel.Tokens.SecurityTokenHandlerCollection"/> of <see cref="T:System.IdentityModel.Tokens.SecurityTokenHandler"/>s used to read and validate <see cref="T:System.IdentityModel.Tokens.SecurityToken"/>s.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.SignInAsAuthenticationType">
+            <summary>
+            Gets or sets the name of another authentication middleware which will be responsible for actually 
+            issuing a user <see cref="T:System.Security.Claims.ClaimsIdentity"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.StateDataFormat">
+            <summary>
+            Gets or sets the type used to secure data handled by the middleware.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.TokenValidationParameters">
+            <summary>
+            Gets or sets the <see cref="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.TokenValidationParameters"/>
+            </summary>
+            <exception cref="T:System.ArgumentNullException"> if 'TokenValidationParameters' is null.</exception>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.Wreply">
+            <summary>
+            Gets or sets the 'wreply'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.Wtrealm">
+            <summary>
+            Gets or sets the 'wtrealm'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationOptions.CallbackPath">
+            <summary>
+            An optional constrained path on which to process the authentication callback. Computed from Wreply
+            </summary>
+        </member>
+        <member name="T:Microsoft.Owin.Security.WsFederation.WsFedMetadataRetriever">
+            <summary>
+            Helper for parsing WSFed metadata.
+            </summary>
+        </member>
+    </members>
+</doc>
